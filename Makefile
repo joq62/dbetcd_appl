@@ -4,6 +4,7 @@ all:
 	rm -rf _build ebin test_ebin;
 	rm -rf common sd api;
 	rm -rf Mnesia.* logs;
+	rm -rf rebar.lock;	
 	rebar3 compile;
 	git add -f *;
 	git commit -m $(m);

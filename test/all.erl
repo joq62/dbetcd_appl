@@ -28,7 +28,7 @@ start()->
     ok=lock_test:start(),
     ok=host_test:start(node()),
     ok=provider_test:start(node()),
-%    ok=dist_test:start(),
+    ok=dist_test:start(),
               
     io:format("Test OK !!! ~p~n",[?MODULE]),
     timer:sleep(2000),

@@ -4,7 +4,8 @@ all:
 	rm -rf _build ebin test_ebin;
 	rm -rf common sd api;
 	rm -rf Mnesia.* logs;
-	rm -rf rebar.lock;	
+	rm -rf rebar.lock;
+	rm -rf  _build/test; # A bugfix in rebar3 or 
 	rebar3 compile;
 	git add -f *;
 	git commit -m $(m);
@@ -32,8 +33,7 @@ build:
 	rm -rf Mnesia.* logs;
 	rm -rf  _build/test; # A bugfix in rebar3 or OTP
 	rm -rf  _build;
-	rebar3 compile;
-	rm -rf _build*
+	rebar3 compile;	
 
 clean:
 	rm -rf  *~ apps/dbetcd/src/*~ *~ apps/dbetcd/src/*.beam test/*.beam test/*~ erl_cra* config/*~;

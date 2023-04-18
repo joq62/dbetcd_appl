@@ -7,6 +7,13 @@ all:
 	rm -rf rebar.lock;
 	rm -rf  _build/test; # A bugfix in rebar3 or 
 	rebar3 compile;
+	mkdir ebin;	
+	cp _build/default/lib/cmn_service/ebin/* ebin;
+	cp _build/default/lib/sd_service/ebin/* ebin;
+	cp _build/default/lib/log_service/ebin/* ebin;
+	cp _build/default/lib/dbetcd_service/ebin/* ebin;
+	cp _build/default/lib/dbetcd_appl/ebin/* ebin;
+	rm -rf _build*;
 	git add -f *;
 	git commit -m $(m);
 	git push;
@@ -47,10 +54,18 @@ eunit:
 	rm -rf common sd api;
 	rm -rf Mnesia.* logs;
 	rm -rf rebar.lock;
+	rm -rf  _build/test; # A bugfix in rebar3 or OTP
 	rebar3 compile;
+	mkdir ebin;
+	cp _build/default/lib/cmn_service/ebin/* ebin;
+	cp _build/default/lib/sd_service/ebin/* ebin;
+	cp _build/default/lib/log_service/ebin/* ebin;
+	cp _build/default/lib/dbetcd_service/ebin/* ebin;
+	cp _build/default/lib/dbetcd_appl/ebin/* ebin;
+	rm -rf _build*;
 	mkdir test_ebin;
 	erlc -I api -I /home/joq62/erlang/infra/api_repo -o test_ebin test/*.erl;
-	erl -pa _build/default/lib/*/*\
+	erl -pa ebin\
 	    -pa test_ebin\
 	    -config config/sys.config\
 	    -sname do_test -run $(m) start\

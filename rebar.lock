@@ -4,7 +4,7 @@
   0},
  {<<"dbetcd_service">>,
   {git,"https://github.com/joq62/dbetcd_service.git",
-       {ref,"1d51337bd651fc5347c27b6503056be328b8e879"}},
+       {ref,"429fe9cdc9fae7de1a62dc0e07d40c1feb4d46fc"}},
   0},
  {<<"log_service">>,
   {git,"https://github.com/joq62/log_service.git",

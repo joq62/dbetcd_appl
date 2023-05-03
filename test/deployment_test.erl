@@ -50,14 +50,14 @@ read_specs_test()->
     
     {"production",
      [
-      {"dbetcd","c200"},{"dbetcd","c201"},{"adder","c200"},{"divi","c200"},
+      {"dbetcd_appl","c200"},{"dbetcd_appl","c201"},{"adder","c200"},{"divi","c200"},
       {"divi","c201"},{"test_appl","c200"},{"test_appl","c201"}
      ]
     }=db_deployment_spec:read("production"),
     
     {ok,
      [
-      {"dbetcd","c200"},{"dbetcd","c201"},{"adder","c200"},{"divi","c200"},{"divi","c201"},
+      {"dbetcd_appl","c200"},{"dbetcd_appl","c201"},{"adder","c200"},{"divi","c200"},{"divi","c201"},
       {"test_appl","c200"},{"test_appl","c201"}
      ]
     }=db_deployment_spec:read(deployment,"production"),

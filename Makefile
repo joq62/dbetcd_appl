@@ -36,13 +36,11 @@ start_dbetcd_for_testing:
 	cp _build/default/lib/dbetcd_service/ebin/* ebin;
 	cp _build/default/lib/dbetcd_appl/ebin/* ebin;
 	rm -rf _build*;
-	mkdir api;
-	cp apps/dbetcd/src/*.api api;
 	mkdir test_ebin;
 	erlc -I api -I /home/joq62/erlang/infra/api_repo -o test_ebin test/*.erl;
 	erl -pa ebin -pa test_ebin\
 	    -config config/sys.config\
-	    -sname dbetcd -run dbetcd_for_testing start $(a) $(b)\
+	    -sname dbetcd -run dbetcd_for_testing start\
 	    -setcookie $(c)
 build:
 	rm -rf  *~ apps/dbetcd/src/*~ *~ apps/dbetcd/src/*.beam test/*.beam test/*~ erl_cra* config/*~;

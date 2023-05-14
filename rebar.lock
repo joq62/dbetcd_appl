@@ -8,7 +8,7 @@
   0},
  {<<"log_service">>,
   {git,"https://github.com/joq62/log_service.git",
-       {ref,"0939a320318000109b3f56b5c1527af111e8939f"}},
+       {ref,"b5f44158c512a194f164c795ef4ab2e85c518c49"}},
   0},
  {<<"sd_service">>,
   {git,"https://github.com/joq62/sd_service.git",

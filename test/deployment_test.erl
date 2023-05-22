@@ -46,32 +46,25 @@ read_specs_test()->
     io:format("Start ~p~n",[{?MODULE,?FUNCTION_NAME}]),
     
     AllDepSpecs=lists:sort(db_deployment_spec:get_all_id()),
-    true=lists:member("production",AllDepSpecs),
+    true=lists:member("test",AllDepSpecs),
     
-    {"production",
-     [{"dbetcd_appl","c200"},
-      {"dbetcd_appl","c201"},
-      {"kube_appl","c200"},
-      {"kube_appl","c201"},
-      {"adder","c200"},
-      {"divi","c200"},
-      {"divi","c201"},
-      {"test_appl","c200"},
-      {"test_appl","c201"}]}=db_deployment_spec:read("production"),
+    {"test",
+     [{"dbetcd_appl","c50"},{"dbetcd_appl","c50"},{"adder","c50"},{"adder","c50"},{"adder","c50"},
+      {"divi","c50"},
+      {"test_appl","c50"},{"test_appl","c50"}
+     ]
+    }=db_deployment_spec:read("test"),
     
     {ok,
-     [{"dbetcd_appl","c200"},
-      {"dbetcd_appl","c201"},
-      {"kube_appl","c200"},
-      {"kube_appl","c201"},
-      {"adder","c200"},
-      {"divi","c200"},
-      {"divi","c201"},
-      {"test_appl","c200"},
-      {"test_appl","c201"}]}=db_deployment_spec:read(deployment,"production"),
+     [
+      {"dbetcd_appl","c50"},{"dbetcd_appl","c50"},{"adder","c50"},{"adder","c50"},{"adder","c50"},
+      {"divi","c50"},
+      {"test_appl","c50"},{"test_appl","c50"}
+     ]
+    }=db_deployment_spec:read(deployment,"test"),
     
     {error,[eexist,"glurk",db_deployment_spec,_]}=db_deployment_spec:read(deployment,"glurk"),
-    {error,['Key eexists',glurk,"production",db_deployment_spec,_]}=db_deployment_spec:read(glurk,"production"),
+    {error,['Key eexists',glurk,"test",db_deployment_spec,_]}=db_deployment_spec:read(glurk,"test"),
  
     ok. 
 %% --------------------------------------------------------------------

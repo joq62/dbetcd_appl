@@ -51,13 +51,13 @@ test_1()->
     ProviderId="kube_appl",
     Node=list_to_atom(DeployId++"@"++"host1"),
     Dir="kube_appl_dir_1",
+    HostName="host_1",
     CreationTime={date(),time()},
     false=db_deploy:member(DeployId),
-    {atomic,ok}=db_deploy:create(DeployId,ProviderId,Node,Dir,CreationTime),
+    {atomic,ok}=db_deploy:create(DeployId,ProviderId,Node,Dir,HostName,CreationTime),
     true=db_deploy:member(DeployId),
     {
-     "deploy_id_1","kube_appl",'deploy_id_1@host1',"kube_appl_dir_1",
-     {_,_}
+     DeployId,ProviderId,Node,Dir,HostName,{_,_}
     }=db_deploy:read(DeployId),
     
     {atomic,ok}=db_deploy:delete(DeployId),

@@ -1,6 +1,6 @@
 [{<<"cmn_service">>,
   {git,"https://github.com/joq62/cmn_service.git",
-       {ref,"7d423ca66edceae2f3a8870c4354d604a57a9576"}},
+       {ref,"14b032b52ad4b1ffa8e6276ae8869663f3201a59"}},
   0},
  {<<"dbetcd_service">>,
   {git,"https://github.com/joq62/dbetcd_service.git",
